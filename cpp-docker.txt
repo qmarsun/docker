@@ -1,0 +1,141 @@
+
+Introducing our new CEO Don Johnson - Read More
+✕
+docker
+Hub
+​
+Search Docker Hub
+ctrl+K
+
+Explore
+Official Images
+gcc
+
+gcc
+Docker Official Image
+•
+10M+
+
+•
+874
+The GNU Compiler Collection is a compiling system that supports several languages.
+
+docker pull gcc
+Quick reference
+Maintained by:
+the Docker Community⁠
+
+Where to get help:
+the Docker Community Slack⁠, Server Fault⁠, Unix & Linux⁠, or Stack Overflow⁠
+
+Supported tags and respective Dockerfile links
+14.2.0, 14.2, 14, latest, 14.2.0-bookworm, 14.2-bookworm, 14-bookworm, bookworm⁠
+
+13.3.0, 13.3, 13, 13.3.0-bookworm, 13.3-bookworm, 13-bookworm⁠
+
+12.4.0, 12.4, 12, 12.4.0-bookworm, 12.4-bookworm, 12-bookworm⁠
+
+Quick reference (cont.)
+Where to file issues:
+https://github.com/docker-library/gcc/issues⁠
+
+Supported architectures: (more info⁠)
+amd64, arm32v5, arm32v7, arm64v8, ppc64le, s390x
+
+Published image artifact details:
+repo-info repo's repos/gcc/ directory⁠ (history⁠)
+(image metadata, transfer size, etc)
+
+Image updates:
+official-images repo's library/gcc label⁠
+official-images repo's library/gcc file⁠ (history⁠)
+
+Source of this description:
+docs repo's gcc/ directory⁠ (history⁠)
+
+What is GCC?
+The GNU Compiler Collection (GCC) is a compiler system produced by the GNU Project that supports various programming languages. GCC is a key component of the GNU toolchain. The Free Software Foundation (FSF) distributes GCC under the GNU General Public License (GNU GPL). GCC has played an important role in the growth of free software, as both a tool and an example.
+
+wikipedia.org/wiki/GNU_Compiler_Collection⁠
+
+logo
+
+How to use this image
+Start a GCC instance running your app
+The most straightforward way to use this image is to use a gcc container as both the build and runtime environment. In your Dockerfile, writing something along the lines of the following will compile and run your project:
+
+FROM gcc:4.9
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+RUN gcc -o myapp main.c
+CMD ["./myapp"]
+Then, build and run the Docker image:
+
+$ docker build -t my-gcc-app .
+$ docker run -it --rm --name my-running-app my-gcc-app
+Compile your app inside the Docker container
+There may be occasions where it is not appropriate to run your app inside a container. To compile, but not run your app inside the Docker instance, you can write something like:
+
+$ docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4.9 gcc -o myapp myapp.c
+This will add your current directory, as a volume, to the container, set the working directory to the volume, and run the command gcc -o myapp myapp.c. This tells gcc to compile the code in myapp.c and output the executable to myapp. Alternatively, if you have a Makefile, you can instead run the make command inside your container:
+
+$ docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4.9 make
+License
+View license information⁠ for the software contained in this image.
+
+As with all Docker images, these likely also contain other software which may be under other licenses (such as Bash, etc from the base distribution, along with any direct or indirect dependencies of the primary software being contained).
+
+Some additional license information which was able to be auto-detected might be found in the repo-info repository's gcc/ directory⁠.
+
+As for any pre-built image usage, it is the image user's responsibility to ensure that any use of this image complies with any relevant licenses for all software contained within.
+
+Recent tags
+About Official Images
+Docker Official Images are a curated set of Docker open source and drop-in solution repositories.
+
+Why Official Images?
+These images have clear documentation, promote best practices, and are designed for the most common use cases.
+
+Why
+Overview
+What is a Container
+Products
+Product Overview
+Product Offerings
+Docker Desktop
+Docker Hub
+Features
+Container Runtime
+Developer Tools
+Docker App
+Kubernetes
+Developers
+Getting Started
+Play with Docker
+Community
+Open Source
+Documentation
+Company
+About Us
+Resources
+Blog
+Customers
+Partners
+Newsroom
+Events and Webinars
+Careers
+Contact Us
+System Status⁠
+© 2025 Docker, Inc. All rights reserved.
+|
+Terms of Service
+|
+Subscription Service Agreement
+|
+Privacy
+|
+Legal
+
+Cookies Settings
+By clicking “Accept All Cookies”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.
+Cookies Settings Reject All Accept All Cookies
